@@ -1,3 +1,4 @@
+import 'package:app_peliculas/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -13,7 +14,11 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppbar(), 
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle()
+              _PosterAndTitle(),
+              _OverView(),
+              _OverView(),
+              _OverView(),
+              CastingCards(),
             ]),
           ),
         ],
@@ -23,6 +28,7 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class _CustomAppbar extends StatelessWidget {
+  // const _CustomAppbar({super.key});
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -36,6 +42,7 @@ class _CustomAppbar extends StatelessWidget {
         title: Container(
           width: double.infinity,
           alignment: Alignment.bottomCenter,
+          padding: const EdgeInsets.only(bottom: 10),
           color: Colors.black12,
           child: const Text(
             'movie.title',
@@ -54,7 +61,6 @@ class _CustomAppbar extends StatelessWidget {
 
 class _PosterAndTitle extends StatelessWidget {
   // const _PosterAndTitle({super.key});
-
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
@@ -105,6 +111,17 @@ class _PosterAndTitle extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _OverView extends StatelessWidget {
+  // const _OverView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text('laksdjlaksdjlaksdj laskdjalskdjalskdjalskdjals laksjdlaksdjlaksdjalsdkjad laksdjlaksdjlaskdladkj', textAlign: TextAlign.justify, style: Theme.of(context).textTheme.subtitle1,),
     );
   }
 }
