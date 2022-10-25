@@ -16,14 +16,11 @@ class MyApp extends StatelessWidget {
         'home': (_) => const HomeScreen(),
         'details': (_) => const DetailsScreen(),
       },
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     title: const Text('Material App Bar'),
-      //   ),
-      //   body: const Center(
-      //     child: Text('Hello World'),
-      //   ),
-      // ),
+      theme: ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(
+          color: Colors.indigo
+        )
+      ),
     );
   }
 }
