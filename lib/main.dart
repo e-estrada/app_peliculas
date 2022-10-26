@@ -13,7 +13,7 @@ class AppState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => MoviesProviders(),
+          create: (_) => MoviesProvider(),
           lazy: false,
         )
       ],
