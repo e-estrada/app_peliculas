@@ -1,7 +1,7 @@
 import 'package:app_peliculas/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../models/models.dart';
+import 'package:app_peliculas/models/models.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
