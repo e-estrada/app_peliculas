@@ -12,8 +12,8 @@ class MoviesProvider extends ChangeNotifier {
 
   MoviesProvider() {
     print('MoviesProviders inicializado');
-    this.getOnDisplayMovies();
-    this.getPopularMovies();
+    getOnDisplayMovies();
+    getPopularMovies();
   }
 
   Future<String> _getJsonData(String endpoint, [int page = 1]) async {
