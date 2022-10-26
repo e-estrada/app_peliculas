@@ -18,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
               _OverView(),
               _OverView(),
               _OverView(),
-              CastingCards(),
+              const CastingCards(),
             ]),
           ),
         ],
@@ -120,7 +120,7 @@ class _OverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Text('laksdjlaksdjlaksdj laskdjalskdjalskdjalskdjals laksjdlaksdjlaksdjalsdkjad laksdjlaksdjlaskdladkj', textAlign: TextAlign.justify, style: Theme.of(context).textTheme.subtitle1,),
     );
   }
