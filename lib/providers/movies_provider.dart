@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:app_peliculas/models/models.dart';
+
+import '../helpers/debouncer.dart';
 
 class MoviesProvider extends ChangeNotifier {
   final String _baseUrl = 'api.themoviedb.org';
@@ -10,6 +14,13 @@ class MoviesProvider extends ChangeNotifier {
   List<Movie> popularMovies = [];
   Map<int, List<Cast>> moviesCast = {};
   int _popularPage = 0;
+
+  final debouncer = Debouncer(
+    duration: const Duration(milliseconds: 500)
+  );
+
+  final StreamController<List<Movie>> _suggestionStreamController = StreamController.broadcast();
+  Stream<List<Movie>> get suggestionStream => _suggestionStreamController.stream;
 
   MoviesProvider() {
     getOnDisplayMovies();
@@ -60,5 +71,9 @@ class MoviesProvider extends ChangeNotifier {
     final response = await http.get(url);
     final searchResponse = SearchResponse.fromJson(response.body);
     return searchResponse.results;
+  }
+
+  void gerSuggestionByQuery(String searchterm) {
+    
   }
 }
