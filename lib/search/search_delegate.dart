@@ -4,6 +4,9 @@ import 'package:app_peliculas/providers/movies_provider.dart';
 import 'package:app_peliculas/models/models.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
+  
+  List<Movie> movieResult = [];
+
   @override
   String? get searchFieldLabel => 'Buscar Película';
 
@@ -23,13 +26,15 @@ class MovieSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Text("buildResults");
+    if (query.isEmpty) {
+      return _emptyContainer();
+    }
+    
+    return ListView.builder(itemCount: movieResult.length, itemBuilder: (_, index) => _MovieItem(movieResult[index]));
   }
 
   Widget _emptyContainer() {
-    return Container(
-      child: const Center(child: Icon(Icons.movie_creation_outlined, color: Colors.black38, size: 130)),
-    );
+    return const Center(child: Icon(Icons.movie_creation_outlined, color: Colors.black38, size: 130));
   }
 
   @override
@@ -38,10 +43,8 @@ class MovieSearchDelegate extends SearchDelegate {
       return _emptyContainer();
     }
 
-    print('http request');
-
-
     final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
+    moviesProvider.getSuggestionByQuery(query);
 
     return StreamBuilder(
       stream: moviesProvider.suggestionStream,
@@ -51,6 +54,7 @@ class MovieSearchDelegate extends SearchDelegate {
         }
 
         final movies = snapshot.data!;
+        movieResult = movies;
         return ListView.builder(itemCount: movies.length, itemBuilder: (_, index) => _MovieItem(movies[index]));
       },
     );
