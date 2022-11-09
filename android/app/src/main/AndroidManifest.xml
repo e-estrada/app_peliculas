@@ -2,7 +2,7 @@
     package="com.example.app_peliculas">
    <application
         android:label="Películas"
-        android:name="${applicationName}"
+        android:name="com.eestrada.flutter.application.peliculas"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
