@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:app_peliculas/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -45,10 +46,16 @@ class _CustomAppbar extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
           color: Colors.black12,
-          child: Text(
-            movie.title,
-            style: const TextStyle(fontSize: 16),
-            textAlign: TextAlign.center,
+          child: FadeIn(
+            delay: Duration(milliseconds: 300),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                movie.title,
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
         ),
         background: FadeInImage(
@@ -91,31 +98,40 @@ class _PosterAndTitle extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  movie.title,
-                  style: textTheme.headline6,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                FadeIn(
+                  delay: Duration(milliseconds: 200),
+                  child: Text(
+                    movie.title,
+                    style: textTheme.headline6,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
                 ),
-                Text(
-                  movie.originalTitle,
-                  style: textTheme.subtitle1,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                FadeIn(
+                  delay: Duration(milliseconds: 400),
+                  child: Text(
+                    movie.originalTitle,
+                    style: textTheme.subtitle1,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
                 ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.star_outline,
-                      size: 15,
-                      color: Colors.grey,
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      '${movie.voteAverage}',
-                      style: textTheme.caption,
-                    )
-                  ],
+                FadeIn(
+                  delay: Duration(milliseconds: 600),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.star_outline,
+                        size: 15,
+                        color: Colors.grey,
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        '${movie.voteAverage}',
+                        style: textTheme.caption,
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
