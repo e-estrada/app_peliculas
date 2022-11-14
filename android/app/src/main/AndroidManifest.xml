@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app_peliculas">
+    package="com.eestrada.flutter_app_peliculas">
    <application
         android:label="Películas"
-        android:name="com.eestrada.flutter.application.peliculas"
+        android:name="com.eestrada.flutter_app_peliculas"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
